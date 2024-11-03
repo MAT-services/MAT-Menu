@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            var objShell = new ActiveXObject("WScript.Shell");
+            var appShell = new ActiveXObject("Shell.Application");
+        </script>
+        <meta charset="UTF-8">
+        <title>Alimentation</title>
+        <hta:application
+            selection="no"
+            icon="icon.ico"
+        >
+    </head>
+    <body>
+        <H1>Optitions d'alimentations</H1>
+        <H3>
+            Options d'arrêt:<br>
+            <button onclick="objShell.Run('shutdown /s /t 0');">Arréter</button><br><br>
+            Options de redémarage:<br>
+            <button onclick="objShell.Run('shutdown /R /T 0');">Redémarer</button><br>
+            <button onclick="objShell.Run('SHUTDOWN /O /R /T 0');">Redémarage avancée (Récupération)</button><br>
+            <button onclick='appShell.ShellExecute("advboot.bat", "", "", "runas", "1");'>Redémarage avancée (Microprogramme)</button><br><BR>
+            Déconnexion:<br>
+            <button onclick="objShell.Run('SHUTDOWN /L')" >Déconnecter l'utilisateur en cours</button><br><br>
+            Veille:<br>
+            <button onclick="objShell.Run('shutdown /h');">Veille Prolongée</button><br><br>
+            Autre:<br>
+            <button onclick="objShell.Run('SHUTDOWN /I');">GUI avancée</button><BR>
+            <button onclick="objShell.Run('SHUTDOWN /a');">Annuler l'arret programmé</button>
+        </H3>
+    </body>
+</html>
