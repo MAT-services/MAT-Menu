@@ -1,0 +1,104 @@
+<html lang="fr">
+    <head>
+        <HTA:APPLICATION
+            ID="system.startmenu"
+            APPLICATIONNAME="Menu de Demarage"
+            SYSMENU="no"
+            selection="no"
+            navigable="yes"
+        >
+        <meta charset="UTF-8">
+        <title>Start Menu</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                position: relative;
+                background-color: #0044cc;
+                background-image: url('background.jpg');
+                background-size: 10px 10px;
+                background-repeat: repeat;
+            }
+            .content {
+                flex: 1;
+            }
+            .fixed-bottom-frame {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #3498db; 
+            color: #fff; 
+            padding: 10px;
+            z-index: 1000; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            white-space: nowrap; 
+        }
+        .user-info span {
+            margin-right: 10px; 
+        }
+        .user-info button {
+            margin-left: 10px; 
+        }
+        </style>
+        <script>
+            function positionerFenetre() {
+                try {
+                    
+                    var startX = 0;
+                    var startY = screen.availHeight - 300 - 370; 
+                    var width = 800; 
+                    var height = 670; 
+
+                    window.moveTo(startX, startY);
+                    window.resizeTo(width, height);
+                } catch (e) {
+                    alert("Erreur de positionnement : " + e.message);
+                }
+            }
+            window.onload = positionerFenetre;
+        </script>
+        <script>
+            function collectUserInfo() {
+                var username = new ActiveXObject("WScript.Network").UserName;
+                document.getElementById('username').innerText = username ;
+            }
+            var objShell = new ActiveXObject("WScript.Shell");
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <div style="background-color:#3498db; color:#3498db; float:right;">
+                <button onclick="location.reload()">🔄️</button>.
+                <button style="color:#d20000;" onclick="window.close()">x</button>
+            </div>
+            <iframe 
+                src="insert.html" 
+                height="550"
+            >
+                Error
+            </iframe>
+        </div>
+        <div class="fixed-bottom-frame">
+            <div class="user-info">
+                <span id="username">Nom de l'utilisateur</span><a style="color: #3498db;">###</a>
+                <button onclick="objShell.Run('power.hta');">Alimentation</button>
+            </div>
+        </div>
+    </body>
+    <foot>
+        <script>
+            collectUserInfo()
+        </script>
+    </foot>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <HTA:APPLICATION
+        ID="App"
+        APPLICATIONNAME="HTA with Env Var"
+        SYSMENU="yes"
+    >
+    <meta charset="UTF-8">
+    <title>HTA with Environment Variable</title>
+    <script>
+        function getEnvVariable(variable) {
+            try {
+                var wsh = new ActiveXObject("WScript.Shell");
+                return wsh.ExpandEnvironmentStrings("%" + variable + "%");
+            } catch (e) {
+                alert("Erreur : " + e.message);
+                return "";
+            }
+        }
+
+        function setIframeSrc() {
+            var userProfile = getEnvVariable("USERPROFILE");
+            var iframe = document.getElementById('pinnedAppsIframe');
+            iframe.src = userProfile + "\\Documents\\PinnedApps";
+        }
+
+        window.onload = setIframeSrc;
+    </script>
+</head>
+<body>
+    <a href="apps.html">Applications</a><br>
+    <a href="prog.html">Programmes</a><br><br>
+    Épinglés:
+    <iframe 
+        id="pinnedAppsIframe" 
+        src=""
+        height="400"
+    ></iframe>
+</body>
+</html>
