@@ -4,6 +4,7 @@ MAT Menu
 - Copyrights:
 
   |-> Not appropriating the title
+  
   |-> The code is open source, but, you are not allowed to republish it with no modifications.
 - Updates
 
