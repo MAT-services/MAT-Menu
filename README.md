@@ -11,6 +11,6 @@ MAT Menu
 
   |-> 1.1
   
-  |-> 1.2 Adding "pinned apps" option, Modifications of icons, modification of the elemnets placement.
+  |-> 1.2 Adding "pinned apps" option, Modifications of icons, modification of the elemnets placement. New background style.
 
 Thank's you for viewing.
